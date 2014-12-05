@@ -1,4 +1,5 @@
 syntax on
+filetype plugin indent on
 
 " Defaults and global settings
 set enc=UTF-8                  " <encoding>   Set the encoding
@@ -7,8 +8,7 @@ set wmnu                       " <wildmenu>   Show tab completion when in menu
 set wim=longest:full,full      " <wildmode>   Complete full option.
 set history=100                " <history>    History backlog. Default is
 set t_Co=256                   "              Number of colors
-
-set wig+=*.o,.git,node_modules,build,bower_components " <wildignore> Files to ignore when autocompleting
+set updatetime=250
 
 " Preferred spacing and shifting options
 set sw=4   " <shiftwidth> Number of spaces per tab for auto indent
@@ -34,24 +34,32 @@ set ve=block   " <virtualedit> Allows for selecting empty spaces.
 set list       " <list>        Turn list on and set characters below
 set lcs=nbsp:¬,eol:ϟ,tab:--,extends:»,precedes:«,trail:•
 
-" Globals, overrides and traditional fixes
-set ru                         " <runtime> Load in other files
-set bsk=/tmp/*,/private/tmp/*  " <backupskip> Dont make swp files here
-set nojs                       " <nojoinspaces> Dont auto-insert two spaces
-set backspace=indent,eol,start " Fix backspace to play with other lines.
-fixdel                         " Remove added backspace characters
-filetype on                    " filetype plugin indent on
-
-:so ~/.vim/src/plugin_configs.vim " Load third party configs
-
 " -- Color scheme generator --
 colorscheme jellybeans
 
-" Fast update time
-set updatetime=250
-
 " Trim whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
 
+" Plugins
+execute pathogen#infect()
+
+" Airline
+let g:airline_left_sep=""
+let g:airline_right_sep=""
+
+" Ctrl P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore={
+  \ "dir": "node_modules",
+  \ "file": "^\.DS_Store\|^\.git"
+  \ }
+
+" Vsplit
+set splitright
+set splitbelow
+
+" Custom leader key
+let mapleader = ";"
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
