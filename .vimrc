@@ -55,11 +55,29 @@ let g:ctrlp_custom_ignore={
   \ "file": "^\.DS_Store\|^\.git"
   \ }
 
-" Vsplit
-set splitright
-set splitbelow
+map <C-n> :NERDTreeToggle<CR>
 
 " Custom leader key
-let mapleader = ";"
+nnoremap <space> <Nop>
+let mapleader = " "
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
+
+
+" Vsplit
+set splitright  " split new window on the right
+set splitbelow  " split new window below
+nnoremap <leader><Left> <C-w>h
+nnoremap <leader><Down> <C-w>j
+nnoremap <leader><Up> <C-w>k
+nnoremap <leader><Right> <C-w>l
+
+" New tab
+nnoremap <leader>t :new<cr>
+
+" auto complete
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
