@@ -37,8 +37,8 @@ set lcs=nbsp:¬,eol:ϟ,tab:--,extends:»,precedes:«,trail:•
 " -- Color scheme generator --
 colorscheme jellybeans
 
-" Trim whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+" Trim trailing whitespace
+autocmd BufWritePre * :%s/ \+$//e
 
 " Plugins
 execute pathogen#infect()
@@ -55,7 +55,9 @@ let g:ctrlp_custom_ignore={
   \ "file": "^\.DS_Store\|^\.git"
   \ }
 
+" Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Custom leader key
 nnoremap <space> <Nop>
@@ -73,7 +75,7 @@ nnoremap <leader><Up> <C-w>k
 nnoremap <leader><Right> <C-w>l
 
 " New tab
-nnoremap <leader>t :new<cr>
+nnoremap <leader>t :vnew<cr>
 
 " auto complete
 inoremap {      {}<Left>
