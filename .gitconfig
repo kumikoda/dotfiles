@@ -1,0 +1,9 @@
+[user]
+	name = Anson Chu
+	email = anson.ch@gmail.com
+[core]
+    editor = vim
+[alias]
+    co = checkout
+[color]
+    ui = auto
