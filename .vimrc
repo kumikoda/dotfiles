@@ -1,15 +1,23 @@
 syntax on
 filetype plugin indent on
 
-" Vundle
+" Vundle Plugins
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'dracula/vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Visual
+colorscheme dracula
+:highlight LineNr ctermfg=grey
 
 " Defaults and global settings
 set enc=UTF-8                  " <encoding>   Set the encoding
@@ -46,24 +54,25 @@ set ve=block   " <virtualedit> Allows for selecting empty spaces.
 autocmd BufWritePre * :%s/ \+$//e
 
 " Airline
+set laststatus=2
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-
-" Ctrl P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore={
-  \ "dir": "node_modules",
-  \ "file": "^\.DS_Store\|^\.git"
-  \ }
 
 " Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '\.swp$']
 
 " Custom leader key
 nnoremap <space> <Nop>
 let mapleader = " "
+
+" Command T
+nmap <silent> <C-p> <Plug>(CommandT)
+set wildignore=*.swp,.pyc
+if &term =~ "xterm" || &term =~ "screen"
+    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 
 " Vsplit
 set splitright  " split new window on the right
