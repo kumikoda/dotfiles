@@ -1,6 +1,16 @@
 syntax on
 filetype plugin indent on
 
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'dracula/vim'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Defaults and global settings
 set enc=UTF-8                  " <encoding>   Set the encoding
 set nowrap                     " <nowrap>     Don't wrap lines
@@ -31,17 +41,9 @@ set sm         " <showmatch>   Show matching brackets and stuff
 set sc         " <showcmd>     Show command in the last line of the screen
 set vb t_vb=   " <visualbell>  Turns default to on.
 set ve=block   " <virtualedit> Allows for selecting empty spaces.
-set list       " <list>        Turn list on and set characters below
-set lcs=nbsp:¬,eol:ϟ,tab:--,extends:»,precedes:«,trail:•
-
-" -- Color scheme generator --
-colorscheme jellybeans
 
 " Trim trailing whitespace
 autocmd BufWritePre * :%s/ \+$//e
-
-" Plugins
-execute pathogen#infect()
 
 " Airline
 let g:airline_left_sep=""
@@ -62,9 +64,6 @@ let NERDTreeShowHidden=1
 " Custom leader key
 nnoremap <space> <Nop>
 let mapleader = " "
-nmap <leader>w :w<cr>
-nmap <leader>q :q<cr>
-
 
 " Vsplit
 set splitright  " split new window on the right
@@ -76,10 +75,3 @@ nnoremap <leader><Right> <C-w>l
 
 " New tab
 nnoremap <leader>t :vnew<cr>
-
-" auto complete
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-

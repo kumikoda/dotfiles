@@ -2,13 +2,9 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-
 # Vim
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-ln -s $DIR/.vimrc ~/.vimrc
-
+ln -sf $DIR/.vimrc ~/.vimrc
+vim +PluginInstall +qall
 
 # Tmux
-ln -s $DIR/.tmux.conf ~/.tmux.conf
-tmux source-file ~/.tmux.conf
+ln -sf $DIR/.tmux_conf ~/.tmux_conf
