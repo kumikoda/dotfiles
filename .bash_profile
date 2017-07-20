@@ -1,1 +1,3 @@
-source .bash_prompt
+if [ -f $HOME/.bashrc ]; then
+    source $HOME/.bashrc
+fi

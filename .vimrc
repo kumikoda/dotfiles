@@ -7,9 +7,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dracula/vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
@@ -67,12 +67,8 @@ let NERDTreeIgnore = ['\.pyc$', '\.swp$']
 nnoremap <space> <Nop>
 let mapleader = " "
 
-" Command T
-nmap <silent> <C-p> <Plug>(CommandT)
-set wildignore=*.swp,.pyc
-if &term =~ "xterm" || &term =~ "screen"
-    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-endif
+" Command P
+let g:ctrlp_show_hidden = 1  " show hidden files
 
 " Vsplit
 set splitright  " split new window on the right
@@ -84,3 +80,6 @@ nnoremap <leader><Right> <C-w>l
 
 " New tab
 nnoremap <leader>t :vnew<cr>
+
+" Golang - auto fmt+import on save
+let g:go_fmt_command = "goimports"
