@@ -7,7 +7,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'dracula/vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
