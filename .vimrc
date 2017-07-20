@@ -66,13 +66,12 @@ let g:airline_right_sep=""
 " Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '\.swp$']
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '\.DS_Store$']
 
 " Custom leader key
 nnoremap <space> <Nop>
 let mapleader = " "
 
-" Command P
 " Command T
 nmap <silent> <C-p> <Plug>(CommandT)
 set wildignore=*.swp,.pyc
