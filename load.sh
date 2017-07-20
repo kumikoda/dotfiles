@@ -11,9 +11,16 @@ ln -sf $DIR/.bash_prompt ~/.bash_prompt
 ln -sf $DIR/.gitconfig ~/.gitconfig
 ln -sf $DIR/.gitignore ~/.gitignore
 
-# Vim
+# Vim - install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Vim - install other bundles
+# todo(fix error about font not present before plugins are installed)
 ln -sf $DIR/.vimrc ~/.vimrc
 vim +PluginInstall +qall
+
+# Vim - gotta do this for command-t work
+( cd ~/.vim/bundle/command-t; rake make )
 
 # Tmux
 ln -sf $DIR/.tmux_conf ~/.tmux_conf

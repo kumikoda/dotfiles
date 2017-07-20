@@ -1,3 +1,8 @@
+" WARNING!!!!!!!!!!!!!
+" An important thing to note, make sure you don't put any comments on the
+" right hand side of a remap. They will be interpreted as commands for the
+" remap as opposed to comments.
+
 syntax on
 filetype plugin indent on
 
@@ -68,7 +73,12 @@ nnoremap <space> <Nop>
 let mapleader = " "
 
 " Command P
-let g:ctrlp_show_hidden = 1  " show hidden files
+" Command T
+nmap <silent> <C-p> <Plug>(CommandT)
+set wildignore=*.swp,.pyc
+if &term =~ "xterm" || &term =~ "screen"
+    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 
 " Vsplit
 set splitright  " split new window on the right
