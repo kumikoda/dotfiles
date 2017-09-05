@@ -4,21 +4,20 @@
 " remap as opposed to comments.
 
 syntax on
-filetype plugin indent on
-
-" Vundle Plugins
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" Vundle Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dracula/vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on
 
 " Visual
 colorscheme dracula
@@ -55,8 +54,11 @@ set sc         " <showcmd>     Show command in the last line of the screen
 set vb t_vb=   " <visualbell>  Turns default to on.
 set ve=block   " <virtualedit> Allows for selecting empty spaces.
 
-" Trim trailing whitespace
+" Trim trailing whitespace on save
 autocmd BufWritePre * :%s/ \+$//e
+
+" New tab
+nnoremap <leader>t :vnew<cr>
 
 " Airline
 set laststatus=2
@@ -86,9 +88,6 @@ nnoremap <leader><Left> <C-w>h
 nnoremap <leader><Down> <C-w>j
 nnoremap <leader><Up> <C-w>k
 nnoremap <leader><Right> <C-w>l
-
-" New tab
-nnoremap <leader>t :vnew<cr>
 
 " Golang - auto fmt+import on save
 let g:go_fmt_command = "goimports"
