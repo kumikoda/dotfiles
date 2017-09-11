@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dracula/vim'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
@@ -91,3 +92,6 @@ nnoremap <leader><Right> <C-w>l
 
 " Golang - auto fmt+import on save
 let g:go_fmt_command = "goimports"
+
+" Rust - auto fmt on save
+let g:rustfmt_autosave = 1
