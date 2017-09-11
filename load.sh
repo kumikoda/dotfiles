@@ -9,7 +9,6 @@ ln -sf $DIR/.bashrc ~/.bashrc
 ln -sf $DIR/.bash_prompt ~/.bash_prompt
 
 # Git
-ln -sf $DIR/.gitconfig ~/.gitconfig
 ln -sf $DIR/.gitignore ~/.gitignore
 
 # Vim - install vundle

@@ -32,6 +32,7 @@ set wim=longest:full,full      " <wildmode>   Complete full option.
 set history=100                " <history>    History backlog. Default is
 set t_Co=256                   "              Number of colors
 set updatetime=250
+set backspace=2                "              Allow backspace over anything
 
 " Preferred spacing and shifting options
 set sw=4   " <shiftwidth> Number of spaces per tab for auto indent

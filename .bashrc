@@ -6,3 +6,6 @@ export GOPATH=$HOME/go
 
 # Path for Rust
 PATH=$PATH:$HOME/.cargo/bin
+
+# Path for Brew
+PATH=$PATH:/usr/local/sbin
