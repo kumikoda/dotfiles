@@ -56,11 +56,25 @@ set sc         " <showcmd>     Show command in the last line of the screen
 set vb t_vb=   " <visualbell>  Turns default to on.
 set ve=block   " <virtualedit> Allows for selecting empty spaces.
 
-" Trim trailing whitespace on save
-autocmd BufWritePre * :%s/ \+$//e
+" Custom leader key
+nnoremap <space> <Nop>
+let mapleader = " "
 
 " New tab
 nnoremap <leader>t :vnew<cr>
+
+" Vsplit
+set splitright  " split new window on the right
+set splitbelow  " split new window below
+nnoremap <leader><Left> <C-w>h
+nnoremap <leader><Down> <C-w>j
+nnoremap <leader><Up> <C-w>k
+nnoremap <leader><Right> <C-w>l
+nnoremap <leader>w :w<Enter>
+nnoremap <leader>q :q<Enter>
+
+" Trim trailing whitespace on save
+autocmd BufWritePre * :%s/ \+$//e
 
 " Airline
 set laststatus=2
@@ -71,25 +85,6 @@ let g:airline_right_sep=""
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.swp$', '\.DS_Store$']
-
-" Custom leader key
-nnoremap <space> <Nop>
-let mapleader = " "
-
-" Command T
-nmap <silent> <C-p> <Plug>(CommandT)
-set wildignore=*.swp,.pyc
-if &term =~ "xterm" || &term =~ "screen"
-    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-endif
-
-" Vsplit
-set splitright  " split new window on the right
-set splitbelow  " split new window below
-nnoremap <leader><Left> <C-w>h
-nnoremap <leader><Down> <C-w>j
-nnoremap <leader><Up> <C-w>k
-nnoremap <leader><Right> <C-w>l
 
 " Golang - auto fmt+import on save
 let g:go_fmt_command = "goimports"

@@ -7,6 +7,7 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ln -sf $DIR/.bash_profile ~/.bash_profile
 ln -sf $DIR/.bashrc ~/.bashrc
 ln -sf $DIR/.bash_prompt ~/.bash_prompt
+ln -sf $DIR/.inputrc ~/.inputrc
 
 # Git
 ln -sf $DIR/.gitignore ~/.gitignore
