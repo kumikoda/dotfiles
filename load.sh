@@ -19,8 +19,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -sf $DIR/.vimrc ~/.vimrc
 vim +PluginInstall +qall
 
-# Vim - gotta do this for command-t work
-( cd ~/.vim/bundle/command-t; rake make )
-
 # Tmux
 ln -sf $DIR/.tmux_conf ~/.tmux_conf
